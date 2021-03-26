@@ -16,7 +16,7 @@ namespace API
 {
     public class Startup
     {
-        private readonly IConfiguration config;
+        private readonly IConfiguration _config;
 
         public Startup(IConfiguration config)
         {
@@ -28,7 +28,7 @@ namespace API
         {
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite( this.config.GetConnectionString("DefaultConnection"));
+                options.UseSqlite( config.GetConnectionString("DefaultConnection"));
             });
             services.AddControllers();
         }

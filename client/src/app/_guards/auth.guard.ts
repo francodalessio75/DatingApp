@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AccountService } from '../_services/account.service';
+
+/**
+ * AuthGuard class subscribes automaticalli observable when we try to subscribe the related property
+ */
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+
+  constructor(private AccountService:AccountService, private toastr:ToastrService){}
+
+  canActivate(): Observable<boolean> {
+    return this.AccountService.currentUser$.pipe(
+      map( user => {
+        if(user){ return true }
+        this.toastr.error('You shall not pass!')
+      })
+    );
+  }
+
+}

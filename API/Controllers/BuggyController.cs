@@ -1,4 +1,3 @@
-using System;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -11,7 +10,7 @@ namespace API.Controllers
         private readonly DataContext _context;
         public BuggyController(DataContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         [Authorize]
@@ -22,7 +21,12 @@ namespace API.Controllers
 
         [HttpGet("not-found")]
         public ActionResult<AppUser> GetNotFound(){
-            var thing = this._context.Users.Find(-1);
+            /**
+              searches for something that for sure doesn't exists
+              ( user having id = -1 )
+              in order to have not found
+            */
+            var thing = _context.Users.Find(-1);
         
             if( thing == null ){
                 return NotFound();
@@ -35,8 +39,10 @@ namespace API.Controllers
         public ActionResult<string> GetSrverError()
         {
 
-            var thing = this._context.Users.Find(-1);
-    
+            var thing = _context.Users.Find(-1);
+            /**
+                Generates an exception
+            **/
             var thingToReturn = thing.ToString();
 
             return thingToReturn;   

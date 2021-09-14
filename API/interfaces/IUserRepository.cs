@@ -5,6 +5,7 @@ using API.Entities;
 
 namespace API.interfaces
 {
+    /* The idea is list only method we need for this implementaion*/
     public interface IUserRepository
     {
          void Update(AppUser user);

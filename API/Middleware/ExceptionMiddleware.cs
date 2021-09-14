@@ -16,11 +16,14 @@ namespace API.Middleware
         private readonly IHostEnvironment _env;
         public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, IHostEnvironment env)
         {
-            this._env = env;
-            this._logger = logger;
-            this._next = next;
+            _env = env;
+            _logger = logger;
+            _next = next;
         }
 
+        /**Inside an http context of a request we intercept the request result and in case of 
+           exception in the catch clause we manage the error/exception
+        */
         public async Task InvokeAsync(HttpContext context)
         {
             try
@@ -29,10 +32,10 @@ namespace API.Middleware
             }
             catch (Exception ex)
             {  
-                this._logger.LogError(ex, ex.Message);
+                _logger.LogError(ex, ex.Message);
                 context.Response.ContentType = "application/json";
                 context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
-                var response = this._env.IsDevelopment() 
+                var response = _env.IsDevelopment() 
                     ? new ApiException (context.Response.StatusCode, ex.Message, ex.StackTrace?.ToString())
                     : new ApiException( context.Response.StatusCode, "Internal Server Error");
 

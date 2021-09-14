@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace API.DTOs
 {
+    /*
+    this class is necessary to avoid the circular reference between AppUser and Photo
+    When we query fro users the framework executes a query also for photos that in turn
+    have reference to AppUser.
+    With this class we map the UserDto amd we figure out the problem 
+    */
     public class MemberDto
     {
         public int Id { get; set; }

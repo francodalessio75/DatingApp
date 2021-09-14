@@ -12,13 +12,13 @@ namespace API.Controllers
 {
     public class AccountController : BaseAPIController
     {
-        private readonly DataContext context;
-        private readonly ITokenService tokenService;
+        private readonly DataContext _context;
+        private readonly ITokenService _tokenService;
 
         public AccountController( DataContext context, ITokenService tokenService)
         {
-            this.context = context;
-            this.tokenService = tokenService;
+            _context = context;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
@@ -29,41 +29,47 @@ namespace API.Controllers
                 return BadRequest("Username already taken");
 
             // "using" keyword assures the automatic execution of dispose method
+            //instantiates a HMACSHA512 object by a random key. This class will be used 
+            //to compute the ashcode of the password
             using var hmac = new HMACSHA512();
 
             //creats he user and its credentials
             var user = new AppUser
             {
                 UserName = registerDto.Username.ToLower(),
+                //password ash code
                 PasswordHash = hmac.ComputeHash( Encoding.UTF8.GetBytes(registerDto.Password)),
+                //thw equals password will give back two different PasswordSalt
                 PasswordSalt = hmac.Key
             };
 
             //get track of the framework insert method
-            this.context.Users.Add(user);
+            _context.Users.Add(user);
             //executes the insert
-            await this.context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             //returns username and Json Web Token
             return new UserDto
             {
                 Username = user.UserName,
-                Token = this.tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user)
             };
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login( LoginDto loginDto)
         {
-            //ask database for a user having the same username
-            var user = await context.Users.SingleOrDefaultAsync( user => user.UserName == loginDto.Username );
+            //searches in database a user by username value. If it finds more then one user having that username
+            //it just fails
+            var user = await _context.Users.SingleOrDefaultAsync( user => user.UserName == loginDto.Username );
+
             //gives 400 if the user doesn't exists
             if( user == null ) return Unauthorized( "Invalid username" );
 
-            //builds the db user password 
+            //initialize a HMACSHA512 object by using the same key used to compute the user password salt
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
-            //gets the transmitted password
+            //computes the ash code of the password using the same key and compres it with the one stored in the database
             var computeHash = hmac.ComputeHash( Encoding.UTF8.GetBytes(loginDto.Password));
 
             //compares each byte of the password byte array if they are not equals return Unauthorized Exception
@@ -76,7 +82,7 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
-                Token = this.tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user)
             };
 
 
@@ -84,7 +90,8 @@ namespace API.Controllers
 
         private async Task<bool> UserExists( string username )
         {
-            return await context.Users.AnyAsync( user => user.UserName == username.ToLower());
+            //executes the check on all database users
+            return await _context.Users.AnyAsync( user => user.UserName == username.ToLower());
         }
     }
 }

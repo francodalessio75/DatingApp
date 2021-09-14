@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dalfra\\documents\\netbeansprojects\\DOTNET\\DatingApp\\api\\API.csproj": {}
+    "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dalfra\\documents\\netbeansprojects\\DOTNET\\DatingApp\\api\\API.csproj": {
+    "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dalfra\\documents\\netbeansprojects\\DOTNET\\DatingApp\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\dalfra\\documents\\netbeansprojects\\DOTNET\\DatingApp\\api\\API.csproj",
+        "projectPath": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\dalfra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dalfra\\documents\\netbeansprojects\\DOTNET\\DatingApp\\api\\obj\\",
+        "outputPath": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dalfra\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\dalfra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,13 +40,29 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.1.1, )"
+            },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "Microsoft.AspNetCore.SpaServices": {
+              "target": "Package",
+              "version": "[3.1.14, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -55,6 +73,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[5.0.4, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -83,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

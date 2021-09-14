@@ -11,7 +11,6 @@ C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.csprojAssemblyReference.cache
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.AssemblyInfoInputs.cache
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.AssemblyInfo.cs
@@ -65,3 +64,11 @@ C:\Users\dalfra\documents\netbeansprojects\DOTNET\DatingApp\api\bin\Debug\net5.0
 C:\Users\dalfra\documents\netbeansprojects\DOTNET\DatingApp\api\bin\Debug\net5.0\Data\UserSeedData.json
 C:\Users\dalfra\documents\netbeansprojects\DOTNET\DatingApp\api\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\dalfra\documents\netbeansprojects\DOTNET\DatingApp\api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\datingapp\api\bin\Debug\net5.0\Microsoft.AspNetCore.NodeServices.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\datingapp\api\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\datingapp\api\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\datingapp\api\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\System.Web.Http.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.csproj.AssemblyReference.cache

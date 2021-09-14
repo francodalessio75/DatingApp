@@ -1,0 +1,6 @@
+TIBCO-BW-CORE-500050: The BW process [sample.restclient.RestClient] instance faulted, JobId [bw0a100], ProcessInstanceId [bw0a100], ParentProcessInstanceId [-], Module [sample.restclient:1.0.0.qualifier], Application [sample.restclient.application:1.0].  
+   <CausedBy> TIBCO-BW-CORE-500051: Activity [GetUser] fault.  
+   <CausedBy> com.tibco.bw.palette.restjson.runtime.exceptions.HttpCommunicationException: An IOException was thrown while trying to execute the HTTP Method at resource path https://reqres.in:443/api/user/2-{ActivityName=GetUser, ProcessName=sample.restclient.RestClient, ModuleName=sample.restclient}
+   <CausedBy> javax.ws.rs.ProcessingException: org.apache.http.conn.HttpHostConnectException: Connect to reqres.in:443 [reqres.in/172.67.222.36, reqres.in/104.21.59.93] failed: Connection timed out: connect
+   <CausedBy> org.apache.http.conn.HttpHostConnectException: Connect to reqres.in:443 [reqres.in/172.67.222.36, reqres.in/104.21.59.93] failed: Connection timed out: connect
+   <CausedBy> java.net.ConnectException: Connection timed out: connect

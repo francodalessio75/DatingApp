@@ -8,6 +8,7 @@ namespace API.Extensions
 {
     public static class IdentityServiceExtensions
     {
+                                                                      /* extensions meethod pattern requires reserved word this*/
         public static IServiceCollection AddIdentityServiceExtensions( this IServiceCollection services, IConfiguration config )
         {
             services.AddAuthentication( JwtBearerDefaults.AuthenticationScheme )
@@ -18,10 +19,11 @@ namespace API.Extensions
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey( Encoding.UTF8.GetBytes( config["TokenKey"])),
                         ValidateIssuer = false,
-                        ValidateAudience = false
+                        ValidateAudience = false,
+                        
                     };
-
                 });
+
 
                 return services;
         }

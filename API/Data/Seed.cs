@@ -25,7 +25,7 @@ namespace API.Data.Migrations
 
                 context.Users.Add(user);
             }
-
+            //only now we call the DB
             await context.SaveChangesAsync();
         }
     }

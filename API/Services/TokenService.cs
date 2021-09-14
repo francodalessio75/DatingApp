@@ -12,10 +12,10 @@ namespace API.Services
 {
     public class TokenService : ITokenService
     {
-        private readonly SymmetricSecurityKey key;
+        private readonly SymmetricSecurityKey _key;
         public TokenService( IConfiguration config )
         {
-            this.key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"]));
         }
 
         public string CreateToken(AppUser user)
@@ -25,7 +25,7 @@ namespace API.Services
                 new Claim(JwtRegisteredClaimNames.NameId, user.UserName)
             };
 
-            var creds = new SigningCredentials( this.key, SecurityAlgorithms.HmacSha512Signature);
+            var creds = new SigningCredentials( _key, SecurityAlgorithms.HmacSha512Signature);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

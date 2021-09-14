@@ -8,6 +8,10 @@ namespace API.Errors
 
         public string Details { get; set; }
 
+        /**
+        by setting parameters to null in case they are not provided they will be initialized to 
+        null.
+        */
         public ApiException(int statusCode, string message = null, string details = null)
         {
             this.StatusCode = statusCode;

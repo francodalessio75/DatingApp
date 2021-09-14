@@ -1,26 +1,33 @@
 import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
+  /* special type of observable that is like a buffer and any tyime it is triggered it just emits
+    all its las n stored values whare n is the parmater of its constructor.
+    So here it returns the last one logged in user.*/
   private currentUserSource = new ReplaySubject<User>(1);
+  /**
+   * This observable is observed by authGuard component, that in turn returns an observable returning a
+   * boolean to choose if a resource can be accessed or not
+   */
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor( private http : HttpClient) { }
 
   login(model:any){
     return this.http.post(this.baseUrl + 'account/login', model).pipe(
-      map((response:User) => {
-        const user = response;
+      map((user:User) => {
         if(user){
           localStorage.setItem('user', JSON.stringify(user));
+          //updates current user observable
           this.currentUserSource.next(user);
         }
       })

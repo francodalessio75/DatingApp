@@ -10,9 +10,11 @@ import { AccountService } from '../_services/account.service';
 })
 export class RegisterComponent implements OnInit {
   model:any = {};
-  @Output() cancelRegister = new EventEmitter()
+  @Output() cancelRegister = new EventEmitter<boolean>()
 
-  constructor(private accountService : AccountService, private toastr: ToastrService ) { }
+  constructor(
+    private accountService : AccountService,
+    private toastr: ToastrService ) { }
 
   ngOnInit(): void {
   }

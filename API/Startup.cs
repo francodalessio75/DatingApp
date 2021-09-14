@@ -1,43 +1,31 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using API.Data;
 using API.Extensions;
-using API.interfaces;
 using API.Middleware;
-using API.Services;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
+
 
 namespace API
 {
     public class Startup
     {
-        private readonly IConfiguration config;
+        private readonly IConfiguration _config;
 
         public Startup(IConfiguration config)
         {
-            this.config = config;
+            _config = config;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationServices( this.config );
+            services.AddApplicationServices( _config );
 
-            services.AddIdentityServiceExtensions( this.config);
+            //extension of IServiceColletciont that manages authorization with token
+            services.AddIdentityServiceExtensions( _config);
 
             services.AddControllers();
 
@@ -54,16 +42,19 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<AuthenticationMiddleware>();
+            
             app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseCors( policy =>  policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
-
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //position is essential for CORS poklicy to work properly
+            app.UseCors( policy =>  policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));/*1*/
+            app.UseAuthentication();/*2*/
+            app.UseAuthorization();/*3*/
+            /**************************/
 
             app.UseEndpoints(endpoints =>
             {

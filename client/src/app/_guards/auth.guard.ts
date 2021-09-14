@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { AccountService } from '../_services/account.service';
 
 /**
- * AuthGuard class subscribes automaticalli observable when we try to subscribe the related property
+ * AuthGuard class subscribes automatically observable when we try to subscribe the related property
  */
 @Injectable({
   providedIn: 'root'

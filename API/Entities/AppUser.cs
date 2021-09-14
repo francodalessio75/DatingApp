@@ -6,6 +6,9 @@ namespace API.Entities
 {
     public class AppUser
     {
+        //it must be necessarily be called that, 
+        //if not it'll be not recognized by the framework        public int Id { get; set; }
+
         public int Id { get; set; }
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
@@ -21,6 +24,11 @@ namespace API.Entities
         public string Country { get; set; }
         public ICollection<Photo> Photos { get; set; }
 
+        /* Commented out since using it the query optimization on dataContext level
+           obtained by mapping with automapper AppUser => MemberDto just fails and
+           when the GetUser quesry is executed we also retrieve password and ashSalt.
+           The age is now computed by executing the same extension method but on dataContext
+           level in UserRepository methods*/
         // public int GetAge()
         // {
         //     return DateOfBirth.CalculateAge();

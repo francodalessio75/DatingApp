@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NW5uNeKTPUWq3BO8JYo66x0322ABeMjFHL85lsGHrEaQmQi/4F1MMwLWWtlb97wZ92j5BVdebGUUCGD/KOXq6A==",
+  "dgSpecHash": "hE8rvFoNpX6abxV/SX1Pi7fDDGi9zZG1i3ZSoi2djbwo4mXbr5/YSVhDQEM60OwBydBCzmtUjBIOQNIG+sFjEQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dalfra\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\dalfra\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

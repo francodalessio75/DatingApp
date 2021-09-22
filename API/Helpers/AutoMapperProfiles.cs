@@ -21,6 +21,8 @@ namespace API.Helpers
                     //missing on automapping from AppUser to MemberDto in UserRepository
                 .ForMember(dest => dest.Age, opt => opt.MapFrom( src => src.DateOfBirth.CalculateAge()) );
             CreateMap<Photo, PhotoDto>();
+
+            CreateMap<MemberUpdateDto, AppUser>();
         }
     }
 }

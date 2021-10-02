@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hE8rvFoNpX6abxV/SX1Pi7fDDGi9zZG1i3ZSoi2djbwo4mXbr5/YSVhDQEM60OwBydBCzmtUjBIOQNIG+sFjEQ==",
+  "dgSpecHash": "LsJF4fTjG7u7+e2AHWw+dFsWJvf3hiDdGFflyIJzJO2EO7a3ROzfDeG4AzVp/e1gHwIBxC3l3WkaGTbd0m9CDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dalfra\\Documents\\NetBeansProjects\\DOTNET\\DatingApp\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dalfra\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\dalfra\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\dalfra\\.nuget\\packages\\cloudinarydotnet\\1.11.0\\cloudinarydotnet.1.11.0.nupkg.sha512",
     "C:\\Users\\dalfra\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dalfra\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\dalfra\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",

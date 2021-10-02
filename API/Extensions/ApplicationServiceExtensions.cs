@@ -15,8 +15,10 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices( this IServiceCollection services, IConfiguration config )
         {
-            //AdddaScoped keeps it scoped inside the controlle where is used. 
+            //Addd aS coped keeps it scoped inside the controlle where is used. 
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             

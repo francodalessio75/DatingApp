@@ -1,0 +1,8 @@
+Come funziona la registazione di un utente
+
+il controller prende username e password
+	controlla da DB se la username esiste già altrimenti da errore
+	Istanzia una hashFactory
+	crea un utente e salva l'ash della password con password salt
+	restituisce username e token
+	

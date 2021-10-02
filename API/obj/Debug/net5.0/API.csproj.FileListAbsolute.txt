@@ -72,3 +72,4 @@ C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\System.Web.Http.dll
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\API\obj\Debug\net5.0\API.csproj.AssemblyReference.cache
+C:\Users\dalfra\Documents\NetBeansProjects\DOTNET\DatingApp\api\bin\Debug\net5.0\CloudinaryDotNet.dll

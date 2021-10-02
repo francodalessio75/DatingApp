@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,9 @@ namespace API.Controllers
         {
             //searches in database a user by username value. If it finds more then one user having that username
             //it just fails
-            var user = await _context.Users.SingleOrDefaultAsync( user => user.UserName == loginDto.Username );
+            var user = await _context.Users
+                .Include(p => p.Photos )
+                .SingleOrDefaultAsync( user => user.UserName == loginDto.Username );
 
             //gives 400 if the user doesn't exists
             if( user == null ) return Unauthorized( "Invalid username" );
@@ -82,7 +85,8 @@ namespace API.Controllers
             return new UserDto
             {
                 Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                Token = _tokenService.CreateToken(user),
+                photoUrl = user.Photos.FirstOrDefault( x => x.IsMain)?.Url
             };
 
 

@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
-import { Photo } from '../_models/photo';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +30,7 @@ export class MembersService {
   getMember(username:string){
 
     const member = this.members.find(x => x.username === username);
+
     if( member!== undefined ){
       return of(member);
     } else{
